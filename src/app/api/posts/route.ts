@@ -27,5 +27,9 @@ export async function POST(req: Request){
 
 export async function DELETE(req: Request){
     const { id } = await req.json();
+
+    posts.filter((p) => p.id !== id);
+
+    return NextResponse.json({message: `Post with ${id} is deleted`});
     
 }
